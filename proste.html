@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proste działania</title>
+    <style>
+        body{
+            width: 800px;
+            height: auto;
+            margin: 0 auto;
+        }
+        .menu{
+            width: 400px;
+            height:auto; 
+            margin:0px auto;
+            float:left;
+        }
+        .content{
+            width: 400px;
+            height:auto; 
+            margin:0px auto;
+            float:right;
+        }
+        .content h1{
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="Baner">
+        <a href="index.html"><img src="Baner.jpg" alt="Baner"></a>
+    </div>
+    <div class="menu">
+        <p>Menu</p>
+        <a href="index.html">-Menu</a><br>
+        <a href="pot.php">-Potęgowanie</a>
+    </div>
+    <div class="content">
+        <p>Treść strony</p>
+        <h1>Proste działania</h1>
+        <form action="#">
+            <p>Podaj pierwsza liczbe<input type="number" id="a"></p>
+            <p>Podaj druga liczbe<input type="number" id="b"></p>
+        </form>
+        <button id="dodawanie">Dodawania</button>
+        <button id="odejmowanie">Odejmowanie</button>
+        <button id="mnozenie">Mnożenie</button>
+        <button id="dzielenie">Dzielenie</button>
+        <div id="odp"></div>
+    </div>
+    <script>
+        var a = document.getElementById("a"); 
+        var b = document.getElementById("b");
+        var dod = document.getElementById("dodawanie");
+        var ode = document.getElementById("odejmowanie");
+        var mno = document.getElementById("mnozenie");
+        var dzie = document.getElementById("dzielenie");
+        var div = document.getElementById("odp");
+
+        dod.addEventListener("click", function(){
+            if(a.value == "" || b.value == "" ){
+                div.innerHTML = "Musisz coś wpisać w polu numerycznym";    
+            }
+            else{
+                let suma = parseInt(a.value) + parseInt(b.value);
+                div.innerHTML =parseInt(a.value) +"+"+ parseInt(b.value) +"="+ suma;
+            }
+        })
+        ode.addEventListener("click", function(){
+            if(a.value == "" || b.value == "" ){
+                div.innerHTML = "Musisz coś wpisać w polu numerycznym";    
+            }
+            else{
+                let roznica = parseInt(a.value) - parseInt(b.value);
+                div.innerHTML =parseInt(a.value) +"-"+ parseInt(b.value) +"="+ roznica;
+            }
+        })
+        mno.addEventListener("click", function(){
+            if(a.value == "" || b.value == "" ){
+                div.innerHTML = "Musisz coś wpisać w polu numerycznym";    
+            }
+            else{
+                let ilo = parseInt(a.value) * parseInt(b.value);
+                div.innerHTML =parseInt(a.value) +"*"+ parseInt(b.value) +"="+ ilo;
+            }
+        })
+        dzie.addEventListener("click", function(){
+            if(a.value == "" || b.value == "" ){
+                div.innerHTML = "Musisz coś wpisać w polu numerycznym";    
+            }
+            else if(b.value == 0){
+                div.innerHTML = "Liczba nie może być równa 0";
+            }
+            else{
+                let ilor = parseInt(a.value) / parseInt(b.value);
+                div.innerHTML =parseInt(a.value) +"/"+ parseInt(b.value) +"="+ ilor;
+            }
+        })
+    </script>
+</body>
+</html>
